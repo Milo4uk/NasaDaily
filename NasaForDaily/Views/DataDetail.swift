@@ -21,10 +21,12 @@ struct DataDetails: View {
                 AsyncImage(
                     url: URL(string: data.imageURL),
                     content: { image in
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 350, maxHeight: 500)
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
                             .padding()
+                        
                     },
                     placeholder: {
                         ZStack {
