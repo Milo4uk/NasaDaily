@@ -15,9 +15,6 @@ struct ContentView: View {
             NavigationLink("Press to load Data", destination: DataDetails(data: network.arrayOfData).environmentObject(network))
                 .navigationTitle("Nasa Daily")
         }
-        .onAppear() {
-            network.getJsonDataFromNasa()
-            }
         .padding()
         }
     }
@@ -29,6 +26,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().preferredColorScheme(.dark)
         ContentView().preferredColorScheme(.light)
-            .environmentObject(RestApiManager())
+            .environmentObject(JsonManager())
     }
 }

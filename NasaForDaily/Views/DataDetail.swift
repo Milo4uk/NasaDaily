@@ -11,29 +11,33 @@ struct DataDetails: View {
     let data: NasaData
     
     var body: some View {
-        ScrollView {
-            Text("\(data.title)")
-                .font(.largeTitle)
-            
-            AsyncImage(
-                url: URL(string: data.imageURL),
-                content: { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 350, maxHeight: 500)
-                },
-                placeholder: {
-                    ZStack {
-                        Rectangle().fill(Color.gray).frame(width: 300, height: 500)
-                        ProgressView()
+        NavigationView {
+            ScrollView {
+                Text(data.title)
+                    .font(.largeTitle)
+
+                AsyncImage(
+                    url: URL(string: data.imageURL),
+                    content: { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 350, maxHeight: 500)
+                    },
+                    placeholder: {
+                        ZStack {
+                            Rectangle().fill(Color.gray).frame(width: 300, height: 500)
+                            ProgressView()
+                        }
                     }
-                }
-            )
-            
-            Text("\(data.explanation)")
-            Divider()
-            
-            Text("\(data.copyright)")
+                )
+                
+                Text("\(data.explanation)")
+                Divider()
+                
+                Text("\(data.copyright)")
+            }
+//            .navigationTitle("Daily picture")
+//            .navigationBarTitleDisplayMode(.automatic)
         }
     }
 }

@@ -5,8 +5,14 @@
 //  Created by Mila ✨ on 26.04.2023.
 //
 
+import Foundation
+
 class JsonManager: ObservableObject {
     @Published var arrayOfData: NasaData = NasaData(copyright: "", explanation: "", imageURL: "", title: "")
+    
+    init() {
+        getJsonDataFromNasa()
+    }
     
     func getJsonDataFromNasa() {
         
