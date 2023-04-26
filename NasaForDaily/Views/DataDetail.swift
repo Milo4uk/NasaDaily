@@ -31,10 +31,10 @@ struct DataDetails: View {
                     }
                 )
                 
-                Text("\(data.explanation)")
+                Text(data.explanation)
                 Divider()
                 
-                Text("\(data.copyright)")
+                Text(data.copyright)
             }
 //            .navigationTitle("Daily picture")
 //            .navigationBarTitleDisplayMode(.automatic)

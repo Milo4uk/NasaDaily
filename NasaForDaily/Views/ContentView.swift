@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            NavigationLink("Press to load Data", destination: DataDetails(data: network.arrayOfData).environmentObject(network))
+            NavigationLink("Press to load Data", destination: DataDetails(data: network.arrayOfData))
                 .navigationTitle("Nasa Daily")
         }
         .padding()
