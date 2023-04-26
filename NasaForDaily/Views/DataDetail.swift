@@ -15,6 +15,8 @@ struct DataDetails: View {
             ScrollView {
                 Text(data.title)
                     .font(.largeTitle)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
 
                 AsyncImage(
                     url: URL(string: data.imageURL),
@@ -22,6 +24,7 @@ struct DataDetails: View {
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: 350, maxHeight: 500)
+                            .padding()
                     },
                     placeholder: {
                         ZStack {
@@ -32,12 +35,13 @@ struct DataDetails: View {
                 )
                 
                 Text(data.explanation)
+                    .fontWeight(.medium)
                 Divider()
                 
                 Text(data.copyright)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding()
             }
-//            .navigationTitle("Daily picture")
-//            .navigationBarTitleDisplayMode(.automatic)
         }
     }
 }
@@ -45,6 +49,7 @@ struct DataDetails: View {
 
 
 struct DataDetails_Previews: PreviewProvider {
+    
     static var previews: some View {
         DataDetails(data: NasaData(copyright: "me", explanation: "You see those stars? Pretty.", imageURL: "https://apod.nasa.gov/apod/image/2304/NlightsSeurope_Cordero_960.jpg", title: "Stars"))
     }

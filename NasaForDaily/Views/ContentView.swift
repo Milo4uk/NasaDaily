@@ -20,21 +20,18 @@ struct ContentView: View {
                         .background(LinearGradient(colors: [Color(red: 0.4, green: 0.4, blue: 0.74), Color(red: 0.3, green: 0.5, blue: 0.8)], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .foregroundColor(.white)
                         .cornerRadius(25)
+                        .shadow(color: .gray, radius: 15)
                 })
                 .navigationTitle("Nasa Daily")
-
         }
         .padding()
         }
     }
 
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().preferredColorScheme(.dark)
         ContentView().preferredColorScheme(.light)
-            .environmentObject(JsonManager())
     }
 }
