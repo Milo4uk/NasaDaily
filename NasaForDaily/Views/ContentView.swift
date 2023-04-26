@@ -12,8 +12,17 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            NavigationLink("Press to load Data", destination: DataDetails(data: network.arrayOfData))
+            NavigationLink(
+                destination: DataDetails(data: network.arrayOfData),
+                label: {
+                    Text("Press to load data")
+                        .padding()
+                        .background(LinearGradient(colors: [Color(red: 0.4, green: 0.4, blue: 0.74), Color(red: 0.3, green: 0.5, blue: 0.8)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .foregroundColor(.white)
+                        .cornerRadius(25)
+                })
                 .navigationTitle("Nasa Daily")
+
         }
         .padding()
         }
