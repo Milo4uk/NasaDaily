@@ -11,29 +11,39 @@ struct DataDetails: View {
     let data: NasaData
     
     var body: some View {
-        ScrollView {
-            Text("\(data.title)")
-                .font(.largeTitle)
-            
-            AsyncImage(
-                url: URL(string: data.imageURL),
-                content: { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 350, maxHeight: 500)
-                },
-                placeholder: {
-                    ZStack {
-                        Rectangle().fill(Color.gray).frame(width: 300, height: 500)
-                        ProgressView()
+        NavigationView {
+            ScrollView {
+                Text(data.title)
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
+
+                AsyncImage(
+                    url: URL(string: data.imageURL),
+                    content: { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
+                            .padding()
+                        
+                    },
+                    placeholder: {
+                        ZStack {
+                            Rectangle().fill(Color.gray).frame(width: 300, height: 500)
+                            ProgressView()
+                        }
                     }
-                }
-            )
-            
-            Text("\(data.explanation)")
-            Divider()
-            
-            Text("\(data.copyright)")
+                )
+                
+                Text(data.explanation)
+                    .fontWeight(.medium)
+                Divider()
+                
+                Text(data.copyright ?? "")
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding()
+            }
         }
     }
 }
@@ -41,6 +51,7 @@ struct DataDetails: View {
 
 
 struct DataDetails_Previews: PreviewProvider {
+    
     static var previews: some View {
         DataDetails(data: NasaData(copyright: "me", explanation: "You see those stars? Pretty.", imageURL: "https://apod.nasa.gov/apod/image/2304/NlightsSeurope_Cordero_960.jpg", title: "Stars"))
     }

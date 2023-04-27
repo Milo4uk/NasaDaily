@@ -5,8 +5,14 @@
 //  Created by Mila ✨ on 26.04.2023.
 //
 
+import Foundation
+
 class JsonManager: ObservableObject {
     @Published var arrayOfData: NasaData = NasaData(copyright: "", explanation: "", imageURL: "", title: "")
+    
+    init() {
+        getJsonDataFromNasa()
+    }
     
     func getJsonDataFromNasa() {
         
@@ -29,7 +35,6 @@ class JsonManager: ObservableObject {
                 DispatchQueue.main.async {
                     do {
                         let nasaData = try JSONDecoder().decode(NasaData.self, from: data)
-//                        self.arrayOfData.append(nasaData)
                         self.arrayOfData = nasaData
                         print(nasaData)
                     } catch {
