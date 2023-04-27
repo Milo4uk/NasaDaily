@@ -35,7 +35,6 @@ class JsonManager: ObservableObject {
                 DispatchQueue.main.async {
                     do {
                         let nasaData = try JSONDecoder().decode(NasaData.self, from: data)
-//                        self.arrayOfData.append(nasaData)
                         self.arrayOfData = nasaData
                         print(nasaData)
                     } catch {

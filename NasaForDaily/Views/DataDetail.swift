@@ -40,7 +40,7 @@ struct DataDetails: View {
                     .fontWeight(.medium)
                 Divider()
                 
-                Text(data.copyright)
+                Text(data.copyright ?? "")
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding()
             }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct NasaData: Decodable {
-    let copyright: String
+    let copyright: String?
     let explanation: String
     let imageURL: String
     let title: String
