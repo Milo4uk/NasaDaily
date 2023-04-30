@@ -8,43 +8,44 @@
 import SwiftUI
 
 struct DataDetails: View {
-    let data: NasaData
+    @EnvironmentObject var data: JsonManager
     
     var body: some View {
         NavigationView {
             ScrollView {
-                Text(data.title)
+                Divider()
+                Text(data.arrayOfData.title)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
 
-                AsyncImage(
-                    url: URL(string: data.imageURL),
-                    content: { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(10)
-                            .padding()
-                        
-                    },
-                    placeholder: {
-                        ZStack {
-                            Rectangle().fill(Color.gray).frame(width: 300, height: 500)
-                            ProgressView()
-                        }
-                    }
-                )
+                 ImageView()
                 
-                Text(data.explanation)
+                Text(data.arrayOfData.explanation)
                     .fontWeight(.medium)
+                    .padding()
                 Divider()
                 
-                Text(data.copyright ?? "")
+                Text(data.arrayOfData.copyright ?? "")
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding()
             }
+            .navigationBarHidden(true)
+//            .toolbar {
+//                ToolbarItem(placement: .automatic, content: {
+//                    Button {
+//                        UIImageWriteToSavedPhotosAlbum(image , nil, nil, nil)
+//                    } label: {
+//                        Image(systemName: "square.and.arrow.down")
+//                    }
+//
+//                })
+//            }
         }
+    }
+    
+    func saveImageToPhotos() {
+        var image = AsyncImage(url: URL(string: data.arrayOfData.imageURL))
     }
 }
 
@@ -53,6 +54,7 @@ struct DataDetails: View {
 struct DataDetails_Previews: PreviewProvider {
     
     static var previews: some View {
-        DataDetails(data: NasaData(copyright: "me", explanation: "You see those stars? Pretty.", imageURL: "https://apod.nasa.gov/apod/image/2304/NlightsSeurope_Cordero_960.jpg", title: "Stars"))
+        DataDetails()
+            .environmentObject(JsonManager())
     }
 }

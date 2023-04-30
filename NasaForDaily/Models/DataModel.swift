@@ -16,7 +16,7 @@ struct NasaData: Decodable {
     enum CodingKeys: String, CodingKey {
         case copyright
         case explanation
-        case imageURL = "hdurl"
+        case imageURL = "url"
         case title
     }
 }
