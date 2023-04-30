@@ -61,6 +61,7 @@
 			children = (
 				21214FCF29F944BC00702066 /* NasaForDailyApp.swift */,
 				21214FE429F9457D00702066 /* Views */,
+				21A43D3C29FF1BA5005DB495 /* ViewModels */,
 				21214FE329F9457200702066 /* Models */,
 				21214FD329F944BF00702066 /* Assets.xcassets */,
 				21214FD529F944BF00702066 /* Preview Content */,
@@ -79,7 +80,6 @@
 		21214FE329F9457200702066 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				21214FDF29F9452600702066 /* JsonManager.swift */,
 				21214FE129F9456600702066 /* DataModel.swift */,
 			);
 			path = Models;
@@ -93,6 +93,14 @@
 				21A3BE7429FABF370028F590 /* ImageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		21A43D3C29FF1BA5005DB495 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				21214FDF29F9452600702066 /* JsonManager.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

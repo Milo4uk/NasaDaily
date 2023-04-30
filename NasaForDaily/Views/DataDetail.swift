@@ -44,9 +44,9 @@ struct DataDetails: View {
         }
     }
     
-    func saveImageToPhotos() {
-        var image = AsyncImage(url: URL(string: data.arrayOfData.imageURL))
-    }
+//    func saveImageToPhotos() {
+//        var image = AsyncImage(url: URL(string: data.arrayOfData.imageURL))
+//    }
 }
 
 
