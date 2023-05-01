@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageView: View {
     @EnvironmentObject var data: JsonManager
+    @State var offset: CGSize = .zero
     @State var currentAmount: CGFloat = 0
     @State var lastAmount: CGFloat = 0
     
@@ -28,7 +29,8 @@ struct ImageView: View {
                     ProgressView()
                 }
             })
-        .scaleEffect(1 + currentAmount)
+        .offset(offset)
+        .scaleEffect(1 + currentAmount + lastAmount)
         .gesture(
             MagnificationGesture()
                 .onChanged { value in
@@ -36,7 +38,22 @@ struct ImageView: View {
                 }
                 .onEnded { value in
                     withAnimation(.spring()) {
+                        lastAmount += currentAmount
                         currentAmount = 0
+                    }
+                }
+        )
+        .simultaneousGesture(
+            DragGesture()
+                .onChanged{ value in
+                    withAnimation(.spring()) {
+                        offset = value.translation
+                    }
+                }
+                .onEnded { value in
+                    withAnimation(.spring()) {
+                        offset = .zero
+//                        add timer, so an image stays in place for 2 seconds and then pops back into place
                     }
                 }
         )
