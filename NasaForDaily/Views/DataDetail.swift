@@ -30,6 +30,7 @@ struct DataDetails: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding()
             }
+            .textSelection(.enabled)
             .navigationBarHidden(true)
 //            .toolbar {
 //                ToolbarItem(placement: .automatic, content: {
