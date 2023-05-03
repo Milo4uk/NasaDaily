@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct NasaForDailyApp: App {
+    @StateObject var network: JsonManager = JsonManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+                ContentView()
+            .environmentObject(network)
         }
     }
 }

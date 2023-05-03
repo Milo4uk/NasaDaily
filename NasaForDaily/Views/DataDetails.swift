@@ -18,8 +18,8 @@ struct DataDetails: View {
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
-
-                 ImageView()
+                
+                ImageView()
                 
                 Text(data.arrayOfData.explanation)
                     .fontWeight(.medium)
@@ -31,7 +31,7 @@ struct DataDetails: View {
                     .padding()
             }
             .textSelection(.enabled)
-            .navigationBarHidden(true)
+        }
 //            .toolbar {
 //                ToolbarItem(placement: .automatic, content: {
 //                    Button {
@@ -42,7 +42,6 @@ struct DataDetails: View {
 //
 //                })
 //            }
-        }
     }
     
 //    func saveImageToPhotos() {
@@ -55,7 +54,9 @@ struct DataDetails: View {
 struct DataDetails_Previews: PreviewProvider {
     
     static var previews: some View {
-        DataDetails()
-            .environmentObject(JsonManager())
+        NavigationView {
+            DataDetails()
+        }
+        .environmentObject(JsonManager())
     }
 }
