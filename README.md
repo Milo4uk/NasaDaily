@@ -1,7 +1,7 @@
 # NasaDaily
-
-![ezgif com-video-to-gif-2](https://user-images.githubusercontent.com/92388527/236627437-989d1acc-caea-4bbf-ac02-6e6431016046.gif)
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/92388527/236627451-2f22f3e7-8271-44e5-ab97-540fc045afbb.gif)
+
+
 
 
 # Основная идея проекта:
